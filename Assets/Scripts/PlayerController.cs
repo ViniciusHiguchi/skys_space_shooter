@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey("left"))
             speed.x -= 1;
 
+        if(Input.GetKeyDown("z"))
+            GetComponent<PlayerActionScript>().Shoot();
         
         GetComponent<PlayerActionScript>().Movement(speed);
     }
