@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 speed;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         speed = new Vector3(0,0,0);
 

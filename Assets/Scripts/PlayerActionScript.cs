@@ -13,13 +13,18 @@ public class PlayerActionScript : MonoBehaviour
 
     public GameObject bullet;
 
-    [SerializeField] private float speedDxy = 5f;
+    [SerializeField] private float speedDxy;
+    private void Start() 
+    {
+        speedDxy = 5000f;
+    }
 
     public void Movement(Vector3 speed)
     {
         // Tilt(speed);
-        speed *= speedDxy * Time.deltaTime;
-        transform.localPosition = transform.position + speed;
+        // speed *= speedDxy * Time.deltaTime;
+        // transform.localPosition = transform.position + speed;
+        GetComponent<Rigidbody>().AddForce(speedDxy * speed);
     }
 
     public void Shoot()
