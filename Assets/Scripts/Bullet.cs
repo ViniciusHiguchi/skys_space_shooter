@@ -13,11 +13,16 @@ public class Bullet : MonoBehaviour
         bulletDamage = 10f;
         GetComponent<Rigidbody>().velocity = new Vector3(0,0,100);
     }
+
+    private void FixedUpdate() 
+    {
+        
+    }
     
     private void OnCollisionEnter(Collision colided) 
     {
         EnemyManager enemy = colided.collider.transform.GetComponent<EnemyManager>();
-        if(enemy == null) return; 
+        if(enemy != null)
         enemy.GetHit(bulletDamage);
         Destroy(this.gameObject);
     }

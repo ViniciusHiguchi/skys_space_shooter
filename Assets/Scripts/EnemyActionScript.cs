@@ -13,6 +13,6 @@ public class EnemyActionScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward * 1000, ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(transform.forward * 750, ForceMode.Force);
     }
 }
