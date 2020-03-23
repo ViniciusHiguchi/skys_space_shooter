@@ -16,7 +16,7 @@ public class PlayerActionScript : MonoBehaviour
     [SerializeField] private float speedDxy;
     private void Start() 
     {
-        speedDxy = 5000f;
+        speedDxy = 6000f;
     }
 
     public void Movement(Vector3 speed)
