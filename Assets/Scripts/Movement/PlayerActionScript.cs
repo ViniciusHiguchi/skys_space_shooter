@@ -30,8 +30,8 @@ public class PlayerActionScript : MonoBehaviour
     public void Shoot()
     {
         
-        Instantiate(bullet, bulletSpawn1.position, bulletSpawn1.rotation);
-        Instantiate(bullet, bulletSpawn2.position, bulletSpawn1.rotation);
+        Instantiate(bullet, bulletSpawn1.position, Quaternion.Euler(90,0,0));
+        Instantiate(bullet, bulletSpawn2.position, Quaternion.Euler(90,0,0));
     }
 
     // public void Tilt(Vector3 tiltInfo)
