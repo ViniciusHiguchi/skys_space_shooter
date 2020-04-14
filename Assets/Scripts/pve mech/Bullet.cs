@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Sps.Enemy;
 
 public class Bullet : MonoBehaviour
@@ -11,7 +9,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         bulletDamage = 10f;
-        GetComponent<Rigidbody>().velocity = new Vector3(0,0,100);
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,200);
     }
 
     private void FixedUpdate() 

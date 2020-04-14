@@ -24,7 +24,8 @@ public class PlayerActionScript : MonoBehaviour
         // Tilt(speed);
         // speed *= speedDxy * Time.deltaTime;
         // transform.localPosition = transform.position + speed;
-        GetComponent<Rigidbody>().AddForce(speedDxy * speed);
+        GetComponent<Rigidbody>().AddForce(0,speedDxy * speed.y,0);
+        GetComponent<Rigidbody>().AddForce(speedDxy * speed.x,0,0);
     }
 
     public void Shoot()
