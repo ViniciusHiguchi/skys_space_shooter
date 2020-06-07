@@ -7,14 +7,18 @@ namespace Sps.Enemy{
 
     public class EnemyActionScript : MonoBehaviour
     {
-        public GameObject thisSceneController;
         public GameObject player;
+        public GameObject bullet;
+        public Transform bulletSpawn;
+        public Transform bulletSpawn2;
+        public Transform thisEnemy;
+        public GameObject explosion;
         [SerializeField] bool behind = false;
         // Start is called before the first frame update
         void Start()
         {
+            thisEnemy = this.transform;
             player = PlayerControl.PlayerController.player;
-            thisSceneController = SceneController.sceneController;
         //GetComponent<Rigidbody>().velocity = (transform.forward * 50);
         }
 
@@ -29,23 +33,23 @@ namespace Sps.Enemy{
             this.transform.Translate(this.transform.forward * 100 * Time.deltaTime, Space.World);
         }
 
-        // Update is called once per frame
-        void FixedUpdate()
-        {
-            //GetComponent<Rigidbody>().AddForce(transform.transform.forward* 750, ForceMode.Force);
-            
+        public void Shoot(){
+            if(behind == false){
+                Instantiate(bullet, bulletSpawn.position, Quaternion.Euler(new Vector3(90 + thisEnemy.rotation.eulerAngles.x, thisEnemy.rotation.eulerAngles.y, thisEnemy.rotation.eulerAngles.z)));
+                Instantiate(bullet, bulletSpawn2.position, Quaternion.Euler(new Vector3(90 + thisEnemy.rotation.eulerAngles.x, thisEnemy.rotation.eulerAngles.y, thisEnemy.rotation.eulerAngles.z)));
+            }
         }
+
+        // Update is called once per frame
+        // void FixedUpdate()
+        // {
+        //     //GetComponent<Rigidbody>().AddForce(transform.transform.forward* 750, ForceMode.Force);
+            
+        // }
 
         public void Destroy()
         {
-            //insert score variable
-            thisSceneController.GetComponent<SceneController>().ScoreCounter(10);
-            Destroy(this.gameObject);
-        }
-
-        public void TimeoutDestroy()
-        {
-            thisSceneController.GetComponent<SceneController>().EnemyMissed(10);
+            Instantiate(explosion, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
         }
     }

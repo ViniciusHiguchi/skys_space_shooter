@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Sps.PlayerAction;
+using Sps.Core;
 
 namespace Sps.PlayerControl
 {
@@ -15,25 +16,29 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     private void Update() {
-        if(Input.GetKeyDown("z"))
+        if(Input.GetKeyDown("space"))
         {
             GetComponent<PlayerActionScript>().Shoot();
-            Debug.Log("z");
+            Debug.Log("Space");
         }
     }
     void FixedUpdate()
     {
         speed = new Vector3(0,0,0);
 
-        if(Input.GetKey("up"))
+        if(Input.GetKey("w"))
             speed.y += 1;
-        if(Input.GetKey("down"))
+        if(Input.GetKey("s"))
             speed.y -= 1;
-        if(Input.GetKey("right"))
+        if(Input.GetKey("d"))
             speed.x += 1;
-        if(Input.GetKey("left"))
+        if(Input.GetKey("a"))
             speed.x -= 1;
         GetComponent<PlayerActionScript>().Movement(speed);
+    }
+
+    public void GetHit(float damage){
+        Debug.Log(damage+" damage");
     }
 }
 }

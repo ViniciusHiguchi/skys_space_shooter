@@ -35,6 +35,7 @@ public class PlayerActionScript : MonoBehaviour
         Instantiate(bullet, bulletSpawn2.position, Quaternion.Euler(90,0,0));
     }
 
+
     // public void Tilt(Vector3 tiltInfo)
     // {
     //     Vector3 tiltTransform = new Vector3(0,0,0);
