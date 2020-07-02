@@ -12,10 +12,7 @@ namespace Sps.Core
         public TextMeshPro text;
         private void Start() {
             scoreController = this.gameObject;
-            text = FindObjectOfType<TextMeshPro>();
-            if(text == null)
-             Debug.Log("null");
-            }
+        }
         public void SetValue(int scoreText)
         {
             text.text = (""+scoreText);
